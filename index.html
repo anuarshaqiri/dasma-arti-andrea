@@ -92,8 +92,8 @@ tailwind.config = {
   <!-- Content -->
   <div class="relative z-10 text-white px-6">
     <p class="text-lg opacity-80 animate-fadeInUp">Together with their families</p>
-    <h1 class="text-6xl md:text-8xl font-display mt-4 animate-fadeInUp">Emma & James</h1>
-    <p class="mt-4 text-xl tracking-widest animate-fadeInUp">are getting married</p>
+    <h1 class="text-6xl md:text-8xl font-display mt-4 animate-fadeInUp">Arti & Andrea</h1>
+    <p class="mt-4 text-xl tracking-widest animate-fadeInUp">Janë duke u martuar</p>
     <p class="mt-2 text-lg animate-fadeInUp">17 July 2026</p>
   </div>
 
@@ -101,30 +101,30 @@ tailwind.config = {
 
 <!-- INVITATION -->
 <section class="py-24 text-center px-6">
-  <h2 class="text-4xl font-display mb-6">Wedding Invitation</h2>
+  <h2 class="text-4xl font-display mb-6">Ftesë për darsme</h2>
   <p class="max-w-2xl mx-auto text-lg text-warmgray">
-    We invite you to share in the joy of our marriage on 17 July 2026.
+    Ju ftojmë të ndani me ne gëzimin e martesës sonë më 17 Korrik 2026.
   </p>
 </section>
 
 <!-- COUNTDOWN -->
 <section class="py-16 bg-blush text-center">
-  <h2 class="text-3xl font-display mb-6">Countdown</h2>
+  <h2 class="text-3xl font-display mb-6">Koha e mbetur deri ditën e darsmes</h2>
   <div id="countdown" class="text-2xl font-semibold"></div>
 </section>
 
 <!-- RSVP -->
 <section class="py-24 px-6 text-center">
-  <h2 class="text-4xl font-display mb-8">RSVP</h2>
+  <h2 class="text-4xl font-display mb-8">Konfirmimi i prezencës suaj</h2>
 
   <form class="max-w-xl mx-auto space-y-4">
     <input type="text" placeholder="Your Name" class="w-full p-3 border rounded">
     <input type="number" placeholder="Number of Guests" class="w-full p-3 border rounded">
 
     <select class="w-full p-3 border rounded">
-      <option>A do të vini?</option>
-      <option>Yes</option>
-      <option>No</option>
+      <option>A do të jeni pjesëmarrës?</option>
+      <option>Po</option>
+      <option>Jo</option>
     </select>
 
     <textarea placeholder="Message" class="w-full p-3 border rounded"></textarea>
@@ -142,22 +142,25 @@ tailwind.config = {
 
 <!-- SCRIPTS -->
 <script>
-/* Countdown */
-const weddingDate = new Date("July 17, 2026 00:00:00").getTime();
-
-setInterval(() => {
-  const now = new Date().getTime();
-  const diff = weddingDate - now;
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-  document.getElementById("countdown").innerHTML =
-    days + " days " + hours + " hours";
-}, 1000);
-
-
-</script>
+  /* Countdown */
+  const weddingDate = new Date("July 17, 2026 00:00:00").getTime();
+  
+  setInterval(() => {
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+  
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  
+    document.getElementById("countdown").innerHTML =
+      days + " ditë " +
+      hours + " orë " +
+      minutes + " minuta " +
+      seconds + " sekonda";
+  }, 1000);
+  </script>
 
 </body>
 </html>
