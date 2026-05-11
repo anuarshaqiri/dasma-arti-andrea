@@ -64,14 +64,9 @@ tailwind.config = {
 <body class="bg-cream font-body text-warmdark overflow-x-hidden">
 
 <!-- AUDIO -->
-<audio id="weddingMusic" loop>
+<audio id="weddingMusic" autoplay loop>
   <source src="./the_mountain-wedding-455512.mp3" type="audio/mpeg">
 </audio>
-
-<!-- MUSIC BUTTON -->
-<button id="musicToggle" class="fixed bottom-6 right-6 bg-gold text-white px-4 py-3 rounded-full shadow-lg z-50">
-  ▶ Play Music
-</button>
 
 <!-- HERO -->
 <section class="relative h-screen flex items-center justify-center text-center overflow-hidden">
@@ -159,6 +154,12 @@ tailwind.config = {
       minutes + " minuta " +
       seconds + " sekonda";
   }, 1000);
+
+  document.addEventListener("click", () => {
+  const music = document.getElementById("weddingMusic");
+  music.play();
+}, { once: true });
+
   </script>
 
 </body>
